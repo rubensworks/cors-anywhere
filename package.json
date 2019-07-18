@@ -12,6 +12,9 @@
     "url": "https://github.com/Rob--W/cors-anywhere/issues/",
     "email": "rob@robwu.nl"
   },
+  "bin": {
+    "cors-anywhere": "bin/cors-anywhere.js"
+  },
   "keywords": [
     "cors",
     "cross-domain",
