@@ -109,6 +109,7 @@ proxy requests. The following options are supported:
   Example: `{"x-powered-by": "CORS Anywhere"}`
 * number `corsMaxAge` - If set, an Access-Control-Max-Age request header with this value (in seconds) will be added.  
   Example: `600` - Allow CORS preflight request to be cached by the browser for 10 minutes.
+* function `isValidUrlToBeProxied` - If set, URLs are only proxied when this function returns true.
 * string `helpFile` - Set the help file (shown at the homepage).  
   Example: `"myCustomHelpText.txt"`
 

@@ -9,6 +9,11 @@ var cors_proxy = require('..');
 cors_proxy.createServer({
     originWhitelist: [], // Allow all origins
     requireHeader: [], // Don't require any headers
+    isValidUrlToBeProxied: function(url) {
+        // return url.startsWith('http://google.com');
+        var regex = /((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}/;
+        return !regex.test(url);
+    },
 }).listen(port, host, function() {
     console.log('Running CORS Anywhere on ' + host + ':' + port);
 });
