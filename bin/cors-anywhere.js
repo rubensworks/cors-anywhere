@@ -32,10 +32,15 @@ cors_proxy.createServer({
           'text/shaclc',
           'text/shaclc-ext',
           'text/html',
+          '*/*',
         ];
         var accept = accepts(req);
         var types = accept.types();
         var valid = true;
+
+        if (types.length === 1 && types[0] === '*/*') {
+          return false;
+        }
 
         for (var i = 0; i < types.length; i++) {
             if (!validContentTypes.includes(types[i])) {
