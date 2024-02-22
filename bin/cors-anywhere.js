@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+var accepts = require('accepts');
+
 // Listen on a specific host via the HOST environment variable
 var host = process.env.HOST || '0.0.0.0';
 // Listen on a specific port via the PORT environment variable
@@ -13,6 +15,29 @@ cors_proxy.createServer({
         // return url.startsWith('http://google.com');
         var regex = /((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}/;
         return !regex.test(url);
+    },
+    isValidAcceptHeader: function(req) {
+        var validContentTypes = [
+          'text/turtle',
+          'application/trig',
+          'application/n-triples',
+          'application/n-quads',
+          'application/ld+json',
+          'text/n3',
+          'application/rdf+xml',
+          'text/html',
+        ];
+        var accept = accepts(req);
+        var types = accept.types();
+        var valid = true;
+
+        for (var i = 0; i < types.length; i++) {
+            if (!validContentTypes.includes(types[i])) {
+                valid = false;
+                break;
+            }
+        }
+        return valid;
     },
 }).listen(port, host, function() {
     console.log('Running CORS Anywhere on ' + host + ':' + port);
