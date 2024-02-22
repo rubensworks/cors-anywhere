@@ -23,8 +23,14 @@ cors_proxy.createServer({
           'application/n-triples',
           'application/n-quads',
           'application/ld+json',
+          'application/json',
           'text/n3',
           'application/rdf+xml',
+          'application/xhtml+xml',
+          'image/svg+xml',
+          'application/xml',
+          'text/shaclc',
+          'text/shaclc-ext',
           'text/html',
         ];
         var accept = accepts(req);
