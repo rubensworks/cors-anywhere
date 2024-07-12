@@ -32,6 +32,8 @@ cors_proxy.createServer({
           'text/shaclc',
           'text/shaclc-ext',
           'text/html',
+          'application/sparql-results+json',
+          'application/sparql-results+xml',
           '*/*',
         ];
         var accept = accepts(req);
