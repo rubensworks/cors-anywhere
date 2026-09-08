@@ -19,6 +19,7 @@ cors_proxy.createServer({
     isValidAcceptHeader: function(req) {
         var validContentTypes = [
           'text/turtle',
+          'application/x-jelly-rdf',
           'application/trig',
           'application/n-triples',
           'application/n-quads',
